@@ -4,14 +4,12 @@ headers.forEach((header) => {
   const tags = header.getElementsByClassName("tag");
   const projectTag = tags[0];
   const myInfosTag = tags[1];
-
   const mySections = document.querySelectorAll(".showTags");
   mySections.forEach((section) => {
     if (section.dataset.value === "projects") {
       section.addEventListener("mouseenter", (e) => {
         projectTag.setAttribute("style", "display : block");
       });
-
       section.addEventListener("mouseleave", (e) => {
         projectTag.setAttribute("style", "display : none");
       });
@@ -19,7 +17,6 @@ headers.forEach((header) => {
       section.addEventListener("mouseenter", (e) => {
         myInfosTag.setAttribute("style", "display : block");
       });
-
       section.addEventListener("mouseleave", (e) => {
         myInfosTag.setAttribute("style", "display : none");
       });
@@ -46,7 +43,6 @@ function addProject(project, targetContainer, imageSize, imagePosition) {
   } else {
     container = frontendDiv;
   }
-
   const article = document.createElement("article");
   const a = document.createElement("a");
   const projectImg = document.createElement("div");
@@ -82,9 +78,16 @@ function addProject(project, targetContainer, imageSize, imagePosition) {
   });
   article.append(skills);
   article.append(period);
-
   container.append(article);
 }
 
+const bookSearch = new Project(
+  "/booksearch",
+  "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+  "Book Search",
+  "Book Search and Inquiry Service",
+  ["VanilaJS", "jQeury", "Kakao Search API"],
+  ["2024.04.24", "2024.04.24"]
+);
 
 addProject(bookSearch, "frontend", "contain", "center");
